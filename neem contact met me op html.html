@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My portfolio</title>
+        <link rel="stylesheet" type="text/CSS" href="neem contact met mij op css.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+          function goBack() {
+              window.history.back()
+                }
+        </script>
+
+        <?php
+
+        // formulier moet gepost zijn:
+
+        if()!isset($_POST["submit"]))
+          {echo:"Vergeet niet het formulier te versturen";
+            }
+
+          $name = $_POST['name'];
+          $visitor_email = $_POST['email'];
+          $message = $_POST['message'];
+          $message = wordwrap($message, 70, "\r\n");
+
+          //valideren dat velden ingevuld zijn
+
+          if(empty($name)|| empty ($visitor_email))
+              { echo: "naam of email niet ingevuld";
+                exit;
+              }
+
+          $email_from = 'jacomijnsteen@gmail.com';
+          $email_subject = "bezoeker portfolio";
+          $email_body = "Bericht via portfolio van $name.\n"
+                        "zijn of haar mailadres is: $visitor_email\n"
+                        "Dit is het bericht: $message " ;
+          $to="jacomijnsteen@gmail.com";
+
+          //mailsturen naar mijzelf
+
+          mail($to,$email_subject,$email_body,)
+
+          //mail sturen naar afzender van bericht
+
+          $to_v = $visitor_email;
+          $email_subject_v = "van Jacomijn Steen";
+          $email_body_v = "Bedankt voor het sturen van dit bericht.\"
+                          "Jacomijn Steen zal zo snel mogelijk contact met u opnemen via dit mailadres.";
+
+          Mail($to_v, $email_subject_v, $email_body_v)
+
+          //en nu maar hopen dat alles werkt.
+
+          ?>
+
+    </head>
+
+    <body >
+
+      <div class="formulier">
+      <form method="post" name="mycontactform" action="form-to-email.php">
+
+        <label>Naam:</label>
+          <input name="name" type="text" />
+          <br/>
+         <label> email-adres</label>
+          <input name="email" type="text">
+          <br/>
+          <h4>bericht</h4><textarea name="message" ></textarea>
+          <input type="submit" value="Sent Form"  />
+      </form>
+    </div>
+
+    <button onclick="goBack()">Go Back</button>
+
+    </body>
+</html>

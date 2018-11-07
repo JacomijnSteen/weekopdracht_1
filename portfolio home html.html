@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My portfolio</title>
+        <link rel="stylesheet" type="text/CSS" href="portfolio home css.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <?php
+
+        // formulier moet gepost zijn:
+
+        if()!isset($_POST["submit"]))
+          {echo:"Vergeet niet het formulier te versturen";
+            }
+
+          $name = $_POST['name'];
+          $visitor_email = $_POST['email'];
+          $message = $_POST['message'];
+          $message = wordwrap($message, 70, "\r\n");
+
+          //valideren dat velden ingevuld zijn
+
+          if(empty($name)|| empty ($visitor_email))
+              { echo: "naam of email niet ingevuld";
+                exit;
+              }
+
+          $email_from = 'jacomijnsteen@gmail.com';
+          $email_subject = "bezoeker portfolio";
+          $email_body = "Bericht via portfolio van $name.\n"
+                        "zijn of haar mailadres is: $visitor_email\n"
+                        "Dit is het bericht: $message " ;
+          $to="jacomijnsteen@gmail.com";
+
+          //mailsturen naar mijzelf
+
+          mail($to,$email_subject,$email_body,)
+
+          //mail sturen naar afzender van bericht
+
+          $to_v = $visitor_email;
+          $email_subject_v = "van Jacomijn Steen";
+          $email_body_v = "Bedankt voor het sturen van dit bericht.\"
+                          "Jacomijn Steen zal zo snel mogelijk contact met u opnemen via dit mailadres.";
+
+          Mail($to_v, $email_subject_v, $email_body_v)
+
+          //en nu maar hopen dat alles werkt.
+
+          ?>
+
+
+    </head>
+
+  <body>
+
+    <header>
+            <h2>Welkom op het portfolio van Jacomijn Steen. Lees en bekijk hieronder meer.
+            </h2>
+    </header>
+
+      <div class="wrap">
+
+        <section class="list">
+              <ul>
+              <li><a href="Portfolio Projecten html.html">Projecten</a></li>
+
+              <li> <a href="portfolio over mijzelf html.html">Over mijzelf</a></li>
+
+              <li> <a href="portfolio Beeldend Kunstenaar html.html">Beeldend Kunstenaar</a></li>
+
+              <li> <a href="portfolio opleidingen html.html">opleidingen en werkervaringen</a></li>
+
+              <li> <a href="portfolio vrijwilligerswerk html.html">vrijwilligerswerk</a></li>
+             </ul>
+        </section>
+
+        <section class="contactme">
+            <a href="neem contact met me op html.html"> Wil je me een bericht sturen? <br/>
+                                          klik dan hier.</a>
+
+        </section>
+
+        <section class="profielfoto" alt="profielfoto">
+        </section>
+
+      </div>
+
+        <section class="footer">
+          <h6>You must be the change you want to see in the world.
+            <br/>(Mahadma Gandhi)<br/></h6>
+        </section>
+
+      </body>
+  </html>
